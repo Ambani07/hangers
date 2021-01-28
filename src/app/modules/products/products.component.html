@@ -1,0 +1,61 @@
+
+<article [class.content]="deviceXs" [class.content-mob]="deviceXs" (scroll)="onScroll($event)">
+  <mat-toolbar>
+  <div fxLayoutAlign="space-between end">
+    <button  type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+      categories
+    </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container class="sidenav-content">
+    
+    <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="sideBarOpen" position="start" fxFlex="20"
+      fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
+      <mat-list role="list" class="list-width" *ngFor="let i of [].constructor(20)">
+        <mat-list-item role="listitem" class="list-item" matRipple>Side Bar Item List</mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <!-- <p>Test</p> -->
+    <mat-drawer-content>
+        <div *ngIf="!deviceXs" class="searchBox">
+            <form class="search-form">
+              <mat-form-field class="search-full-width">
+                <input type="text" matInput placeholder="Search">
+                <mat-icon matSuffix placeholder="search">search</mat-icon>
+              </mat-form-field>
+            </form>
+            <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+            </p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-btween">
+
+        <div class="cardList">
+            <mat-card class="item-card" *ngFor="let item of items">
+            <mat-card-header>
+                <div mat-card-avatar class="item-header-image" fxLayoutAlign.xs="center center"></div>
+            </mat-card-header>
+            <img mat-card-image src="{{item.image}}"
+                alt="Photo of a Shiba Inu"
+                routerLink="/product/1">
+            <mat-card-content>
+                <mat-card-subtitle>Dog Breed | R50</mat-card-subtitle>
+                
+              
+            </mat-card-content>
+              <mat-card-footer>
+                  <button mat-button> LIKE </button>
+                  <button mat-button> ADD TO CART </button>
+                  <button mat-button> VIEW </button>
+              </mat-card-footer>
+            </mat-card>
+        </div>
+        </div>
+        
+    </mat-drawer-content>
+  </mat-drawer-container>
+</article>

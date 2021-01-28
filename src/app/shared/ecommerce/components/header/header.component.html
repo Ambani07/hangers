@@ -1,0 +1,61 @@
+<mat-toolbar class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+        <button mat-button routerLink="/">
+            <img mat-card-image src='https://via.placeholder.com/60'
+                alt="Photo of a Shiba Inu">
+            <span class="logo">apara</span>
+        </button>
+      
+    </div>
+    <div>
+        
+        <div *ngIf="!deviceXs" fxLayout="row">
+            <button mat-button routerLink="/">Home</button>
+            <button mat-button routerLink="/shop">Shop</button>
+            
+            <div *ngIf="!authorized">
+              <button mat-button routerLink="/user/login">Login</button>
+              <button mat-button routerLink="/user/register">Register</button>
+            </div>
+            <button *ngIf="authorized" mat-button (click)="logout()">Logout</button>
+            <button *ngIf="authorized" mat-button routerLink="/manage/admin">Manage</button>
+            <button mat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
+            <button *ngIf="authorized" mat-button routerLink="/wish-list"><mat-icon>shopping_bag</mat-icon></button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+    <button *ngIf="!deviceXs" type="button" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+    </button>
+        <button mat-button routerLink="/">Home</button>
+        <button mat-button routerLink="/shop">Shop</button>
+        <button mat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></button>
+        <button mat-button routerLink="/wish-list"><mat-icon>shopping_bag</mat-icon></button>
+    <button
+    *ngIf="deviceXs"
+    mat-button
+    [matMenuTriggerFor]="menu"
+    fxLayoutAlign="end"
+    >
+    <mat-icon>person</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- Menu Items -->
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item routerLink="/login">Login</button>
+  <button mat-menu-item routerLink="/register">Register</button>
+  <button mat-menu-item routerLink="/about-us">About us</button>
+  <button mat-menu-item routerLink="/contact-us">Contact us</button>
+  <button mat-menu-item routerLink="/manage/admin">Manage</button>
+
+</mat-menu>
+
+<!-- Menu Items -->
+<mat-menu #user="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item routerLink="/wish-list">My Wish List</button>
+  <button mat-menu-item routerLink="/about-us">About us</button>
+  <button mat-menu-item routerLink="/contact-us">Contact us</button>
+</mat-menu>

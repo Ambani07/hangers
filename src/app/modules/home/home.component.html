@@ -1,0 +1,89 @@
+
+<article [class.content]="deviceXs" [class.content-mob]="deviceXs" (scroll)="onScroll($event)">
+  <mat-toolbar>
+  <div fxLayoutAlign="space-between end">
+    <button  type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+      categories
+    </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container class="sidenav-content">
+    
+    <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="sideBarOpen" position="start" fxFlex="20"
+      fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
+      
+      <mat-list role="list" class="list-width">
+        <mat-list-item role="listitem" class="list-item" matRipple routerLink="/shop">
+            Fashion
+        </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <!-- <p>Test</p> -->
+    <mat-drawer-content>
+        <div *ngIf="deviceXs" class="searchBox">
+            <form class="search-form">
+                <mat-form-field class="search-full-width">
+                    <input type="text" matInput placeholder="Search">
+                    <mat-icon matSuffix placeholder="search">search</mat-icon>
+                </mat-form-field>
+            </form>
+        </div>
+        <div fxLayout="row">
+            <mat-carousel
+            timings="250ms ease-in"
+            [autoplay]="true"
+            color="accent"
+            maxWidth="auto"
+            [loop]="true"
+            [hideArrows]="true"
+            [hideIndicators]="true"
+            [useKeyboard]="true"
+            [useMouseWheel]="false"
+            orientation="ltr"
+            >
+            <mat-carousel-slide
+                #matCarouselSlide
+                *ngFor="let slide of slides; let i = index"
+                [image]="slide.image"
+                overlayColor="#00000080"
+                [hideOverlay]="false"
+            >
+                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+                    <h1>{{ i }}</h1>
+                    <p>disabled: {{ matCarouselSlide.disabled }}</p>
+                    <button
+                        mat-flat-button
+                        (click)="matCarouselSlide.disabled = !matCarouselSlide.disabled"
+                    >
+                        Click me!
+                    </button>
+                </div>
+            </mat-carousel-slide>
+        </mat-carousel>
+        
+        <div *ngIf="products" class="cardList">
+            <mat-card class="item-card" *ngFor="let item of products">
+            <mat-card-header>
+                <div mat-card-avatar class="item-header-image" fxLayoutAlign.xs="center center"></div>
+            </mat-card-header>
+            <img mat-card-image src="assets/images/items/{{item.image}}"
+                alt="Photo of a Shiba Inu"
+                routerLink="product/{{item.id}}">
+            <mat-card-content>
+                <mat-card-subtitle>{{item.title}} | R {{item.price}}</mat-card-subtitle>
+            </mat-card-content>
+              <mat-card-footer>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>ADD TO CART</button>
+                </mat-card-actions>
+              </mat-card-footer>
+            </mat-card>
+        </div>
+        </div>
+        
+    </mat-drawer-content>
+  </mat-drawer-container>
+</article>

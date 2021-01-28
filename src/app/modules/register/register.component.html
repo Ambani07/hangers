@@ -1,0 +1,74 @@
+
+<article [class.content]="deviceXs" [class.content-mob]="deviceXs" (scroll)="onScroll($event)">
+
+  <mat-drawer-container class="sidenav-content">
+    
+
+    <mat-drawer-content>
+        <div class="itemContainer">
+
+            <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>Register</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Username</mat-label>
+                        <input
+                          matInput 
+                          type="text"
+                          name="username" 
+                          #userUsername="ngModel" 
+                          [(ngModel)]="user.username"
+                          required>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input
+                          matInput 
+                          type="email"
+                          name="email" 
+                          #userUsername="ngModel" 
+                          [(ngModel)]="user.email"
+                          required>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input
+                          matInput 
+                          type="password"
+                          name="password" 
+                          #userPassword="ngModel" 
+                          [(ngModel)]="user.password"
+                          required>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Confirm Password</mat-label>
+                        <input
+                          matInput 
+                          type="password"
+                          name="confirmPassword" 
+                          #userPassword="ngModel" 
+                          [(ngModel)]="user.confirmPassword"
+                          required>
+                    </mat-form-field>
+
+                  <mat-card-actions>
+                    <button mat-button type="submit">Submit</button>
+                    <button mat-button routerLink="/">Cancel</button>
+                  </mat-card-actions>
+                  <mat-card-footer>
+                    <p>Have an account? <a routerLink="/user/login">Sign in.</a> </p>
+                  </mat-card-footer>
+                </form>
+              </mat-card-content>
+            </mat-card>
+        </div>
+        
+    </mat-drawer-content>
+  </mat-drawer-container>
+</article>

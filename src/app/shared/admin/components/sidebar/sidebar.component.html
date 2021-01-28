@@ -1,0 +1,39 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h2>Ambani</h2>
+            <h4>ambani@gmail.com</h4>
+        </div>
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="test">
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader >Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/manage/admin">Dashboard</a>
+    <a mat-list-item routerLink="/manage/admin">Brands</a>
+    <a mat-list-item routerLink="/manage/admin/products">Product</a>
+
+    <h2 matSubheader >Manage</h2>
+    <a mat-list-item routerLink="/">
+        <mat-icon>keyboard_backspace</mat-icon>
+        Shop
+    </a>
+    <a mat-list-item routerLink="/manage/admin/products">
+        <mat-icon>shopping_bag</mat-icon>
+        Wish List
+    </a>
+    <a mat-list-item routerLink="/manage/admin/products">
+        <mat-icon>payment</mat-icon>
+        Payment
+    </a>
+    <a mat-list-item routerLink="/manage/admin/products">
+        <mat-icon>history</mat-icon>
+        History
+    </a>
+    <a mat-list-item routerLink="/manage/admin/products">
+        <mat-icon>person</mat-icon>
+        Account
+    </a>
+</mat-nav-list>

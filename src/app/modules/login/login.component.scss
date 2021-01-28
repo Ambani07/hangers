@@ -1,0 +1,122 @@
+.content {
+    position: absolute;
+    top: 65px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+  
+  }
+  
+  .content-mob {
+    position: absolute;
+    top: 113px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+  
+  }
+  
+  .search-mob {
+    visibility: hidden;
+  }
+  
+  .item-card {
+    max-width: 500px;
+    margin: 0px 15px 15px 0px;
+  }
+  
+  .cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 60%;
+  }
+  
+  .itemContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10% 2.5% 2.5% 2.5%;
+  }
+  /* Column Gap */
+  .cardList > * {
+    box-sizing: border-box;
+  }
+  .cardList > *:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+  }
+  
+  .item-header-image {
+    background-image: url('https://via.placeholder.com/150');
+    background-size: cover;
+  }
+  
+  mat-drawer {
+  
+    position: fixed;
+    background-color: rgb(236, 236, 236);
+  }
+  
+  .sidenav-content:first-child {
+    margin: 10px 5px 5px 5px;
+  }
+  
+  .list-width {
+    width: 200px;
+  
+  }
+  
+  .list-item:hover {
+    background-color: rgba(83, 83, 83, 0.178);
+    cursor: pointer;
+  }
+  
+  mat-carousel {
+    height: 60vh;
+  }
+  
+  .search-form {
+    min-width: 150px;
+    max-width: 80%;
+    width: 100%;
+  }
+  
+  .search-full-width {
+    width: 100%;
+  }
+
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .orange {
+    color: orange;
+  }
+
+  .example-form {
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  mat-card-footer {
+    padding: 15px;
+  }
